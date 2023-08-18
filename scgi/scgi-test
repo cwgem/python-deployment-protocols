@@ -1,0 +1,12 @@
+server {
+	listen 9999;
+	listen [::]:9999;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+
+	location / {
+		scgi_pass 127.0.0.1:8087;
+		include scgi_params;
+	}
+}

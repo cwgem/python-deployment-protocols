@@ -1,0 +1,12 @@
+server {
+	listen 9898;
+	listen [::]:9898;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+
+	location / {
+		uwsgi_pass 127.0.0.1:8087;
+		include uwsgi_params;
+	}
+}
